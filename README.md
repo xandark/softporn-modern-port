@@ -27,35 +27,41 @@ It took just an evening to get it to compile under Free Pascal and work.
 
 * Changing the source names to end in .pas so that modern editors will automatically do proper syntax highlighting
 * Added an explicit "uses Crt;" to reference this standard unit
-* Change variable names named "object" to "obj" as "object" is now a reserved keyword in modern Pascal
+* Change variable named "object" to "obj" as "object" is now a reserved keyword in modern Pascal
 * There were some unused variables that the compiler was complaining about, so they were removed 
 * Fixed an original bug: the direction_name_string array was too small and has been resulting in an overflow situation
 * Replaced read( kbd, ch ) with ReadKey(), as the former doesn't map to modern Pascal
 * Instead of hard-coding the height of the terminal, it now adapts to your terminal height
-* And that's really it
+* And that's really it!
 
 ## Compiling
 
 ### Ubuntu / Debian
 
 ```
-$ sudo apt install fp-compiler  # install the Free Pascal compiler (fpc)
+$ sudo apt install fp-compiler  # install the Free Pascal compiler ("fpc")
 
-$ fpc softpack.pas              # compile tool; ignore linker "link.res contains output sections" warnings in Free Pascal's 3.0.x version
-$ fpc softporn_adventure.pas    # compile game; ignore linker "link.res contains output sections" warnings in Free Pascal's 3.0.x version
+$ fpc softpack.pas              # compile the tool; ignore linker "link.res contains output sections" warnings in Free Pascal 3.0.x
+$ fpc softporn_adventure.pas    # compile the game; ignore linker "link.res contains output sections" warnings in Free Pascal 3.0.x
 
 $ ./softpack                    # one-time step; converts softporn.txt to softporn.msg message file
 ```
 
 ## Running
 
-This game is of course entirely text-based, so you have to run it from a terminal. 
+This game is of course entirely text-based, so it runs in a console/terminal.
+
+### From the terminal
 
 ```
 $ ./softporn_adventure          # runs the game
 ```
 
 At any point, type "quit" to end.
+
+### From a graphical browser
+
+Just click the "Softporn Adventure.desktop" file. No need to install the program in any special location; it will magically run from the folder you've compiled into. (Tested under KDE Plasma Desktop [5.17.4] using Dolphin.)
 
 ## To do
 

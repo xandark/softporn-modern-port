@@ -1,0 +1,24 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Name=Softporn Adventure
+GenericName=Classic text adventure game
+Comment=A modern port of Softporn Adventure (1981) by Charles Benton
+Icon=input-keyboard
+Categories=Game;
+
+Type=Application
+Terminal=true
+StartupNotify=true
+
+# This was really hard to get working from a local directory, so had to do this wacky hack to run from /tmp
+# Strangely, setting PATH doesn't work, it's like it gets reset right after we set it. So made links
+# to a known location, namely /tmp. The special %k field is the path of our .desktop file. 
+# See: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.1.html#exec-variables
+Exec=DIR=$(dirname "%k");  ln --symbolic "$DIR/softporn_adventure" "$DIR/softporn.msg" /tmp;  /tmp/softporn_adventure
+Path=/tmp
+
+# Created by Michael Persimmon, 27 Dec 2019
+
+# NOTE: runs script under sh, not bash.

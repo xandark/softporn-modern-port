@@ -41,8 +41,8 @@ It took just an evening to get it to compile under Free Pascal and work.
 ```
 $ sudo apt install fp-compiler  # install the Free Pascal compiler (fpc)
 
-$ fpc softpack.pas              # ignore linker "link.res contains output sections" warnings in Free Pascal's 3.0.x version
-$ fpc softporn_adventure.pas    # ignore linker "link.res contains output sections" warnings in Free Pascal's 3.0.x version
+$ fpc softpack.pas              # compile tool; ignore linker "link.res contains output sections" warnings in Free Pascal's 3.0.x version
+$ fpc softporn_adventure.pas    # compile game; ignore linker "link.res contains output sections" warnings in Free Pascal's 3.0.x version
 
 $ ./softpack                    # one-time step; converts softporn.txt to softporn.msg message file
 ```

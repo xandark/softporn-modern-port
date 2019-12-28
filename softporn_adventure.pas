@@ -1,21 +1,19 @@
 {$MODE FPC}					{ Default mode of Free Pascal; don't use Turbo Pascal mode, which prevents compilation }
 
+{$C+}						{ what was this?? assertions compiled into binary??? }
+{$R+}						{ range checks on }
+// {$U+}					{ what was this?? }
+
 program softporn_adventure;
 
 uses 
   Crt; 						{ /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/unix/crt.pp } { https://www.freepascal.org/docs-html/current/rtl/crt/index.html } { imports: delay, gotoXY, clrscr, clreol, lowvideo } { Turbo Pascal screen and keyboard handling unit }
 
 {$ifndef linux}
-	const  bottom_line = 25;    { 24 for CP/M, 25 for IBM PC }
-{$else}
-	const  bottom_line = 36;    { Linux is different }
+	const  bottom_line = 25;    { 24 for CP/M, 25 for IBM PC; set below for Linux }
 {$endif}
 
-label  quit_game;
-
-{$C+}						{ what was this?? assertions compiled into binary??? }
-{$R+}						{ range checks on }
-// {$U+}					{ what was this?? }
+label    quit_game;
 
 const    recsize = 450;
 
@@ -24,6 +22,10 @@ type     rectype = array[1..recsize] of char;
 var      messg_rec  : rectype;
          messg_file : file of rectype;
          ioerr      : integer;
+
+{$ifdef linux}
+         bottom_line : integer;
+{$endif}
 
 {$I softporn-1.inc.pas }
 {$I softporn-2.inc.pas }
@@ -34,9 +36,13 @@ begin   { main program }
 
   lowvideo;
 
+  {$ifdef linux}
+     bottom_line := ScreenHeight;				// set dynamic height of terminal; defined in Crt unit
+  {$endif}
+
   {$I-}
-  assign(messg_file,'softporn.msg');
-  reset(messg_file);
+    assign(messg_file,'softporn.msg');
+    reset(messg_file);
   {$I+}
   ioerr := IOresult;
   if ioerr<>0 then

@@ -174,8 +174,6 @@ procedure init_new_game;
 
 var yesno     : char;
     place     : places;
-//  direction : directions;
-//  i         : integer;
 
 begin
   clrscr;
@@ -192,7 +190,7 @@ begin
 
       line_from_kbd := '';
 
-      object_place := orig_object_place;		// https://www.freepascal.org/docs-html/current/user/userse63.html
+      object_place := orig_object_place;
 
       path := orig_path;
 
@@ -249,9 +247,7 @@ var objcount  : integer;
     exits,
     exitcount : integer;
     exit      : directions;
-//  anyexit   : boolean;
     i, 
-//  j,
     hpos,
     namelen   : integer;
 
@@ -546,7 +542,7 @@ procedure read_and_parse_command( var verb, noun : word_name_string;
                                   var full_verb, full_noun : str25 );
 (*=================================================================*)
 
-var i {, sppos}: integer;
+var i          : integer;
     command    : str120;
     command_ok : boolean;
 

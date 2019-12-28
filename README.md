@@ -25,6 +25,7 @@ is no cost, multi-platform, and it is easy to use.
 
 It took just an evening to get it to compile under Free Pascal and work. 
 
+* Changing the source names to end in .pas so that modern editors will automatically do proper syntax highlighting for Pascal
 * There were some unused variables that the compiler was complaining about, so they were removed 
 * The direction_name_string array was too short and resulting in an overflow situation
 * The ReadKey() function call needed to be added to use the standard keyboard input versus using a global variable for input

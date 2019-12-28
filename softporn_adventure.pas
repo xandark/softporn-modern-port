@@ -4,16 +4,15 @@
 {$R+}						{ range checks on }
 // {$U+}					{ what was this?? }
 
-program softporn_adventure;
-
-uses 
-  Crt; 						{ standard screen and keyboard handling unit } { imports: delay, gotoXY, clrscr, clreol, lowvideo, ScreenHeight } { /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/inc/crth.inc, /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/unix/crt.pp } { https://www.freepascal.org/docs-html/current/rtl/crt/index.html }  
-
-
 // Modern conveniences implemented at compile-time
 {$define cheat}					{ starts with $10,000, instead of $2,000 }
 {$define omit_extra_newlines}	{ otherwise it adds too many vertical spaces between responses }
 
+
+program softporn_adventure;
+
+uses 
+  Crt; 						{ standard screen and keyboard handling unit } { imports: delay, gotoXY, clrscr, clreol, lowvideo, ScreenHeight } { /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/inc/crth.inc, /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/unix/crt.pp } { https://www.freepascal.org/docs-html/current/rtl/crt/index.html }  
 
 {$ifndef linux}
   const  bottom_line = 25;	{ 24 for CP/M, 25 for IBM PC; set below for Linux }

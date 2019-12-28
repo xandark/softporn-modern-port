@@ -25,10 +25,12 @@ is no cost, multi-platform, and it is easy to use.
 
 It took just an evening to get it to compile under Free Pascal and work. 
 
-* Changing the source names to end in .pas so that modern editors will automatically do proper syntax highlighting for Pascal
+* Changing the source names to end in .pas so that modern editors will automatically do proper syntax highlighting
+* Added an explicit "uses Crt;" to reference this standard unit
+* Change variable names named "object" to "obj" as "object" is now a reserved keyword in modern Pascal
 * There were some unused variables that the compiler was complaining about, so they were removed 
-* The direction_name_string array was too short and resulting in an overflow situation
-* The ReadKey() function call needed to be added to use the standard keyboard input versus using a global variable for input
+* Fixed an original bug: the direction_name_string array was too small and has been resulting in an overflow situation
+* Replaced read( kbd, ch ) with ReadKey(), as the former doesn't map to modern Pascal
 * Instead of hard-coding the height of the terminal, it now adapts to your terminal height
 * And that's really it
 

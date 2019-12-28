@@ -268,7 +268,9 @@ begin
             write_message('The telephone rings');
         end;
       place_visited[your_place] := true;
-//    newlines(2);									// this was commented out because it adds too many vertical spaces between responses
+{$ifndef omit_extra_newlines}
+      newlines(2);									// it adds many vertical spaces between responses
+{$endif}
 
       gotoXY(1,1);
       clreol;

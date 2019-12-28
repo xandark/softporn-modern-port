@@ -1,7 +1,7 @@
 # Softporn Adventure (1981) by Charles Benton
 
 I met "Chuck" Benton when I was a kid, maybe 10 years old, and he was showing me this, his new creation,
-on his Apple II. He has just begun selling it. I remember being amazed at how intelligent the AI seemed, 
+on his Apple II. He had just begun selling it. I remember being amazed at how intelligent the AI seemed, 
 not to mention it was funny! It had adult themes that were very different from the other generic space 
 games and arcade ports I was used to seeing on my Apple II. 
 

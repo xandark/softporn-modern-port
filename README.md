@@ -1,4 +1,4 @@
-# Softporn Adventure (1981) by Charles Benton
+# Linux port of Softporn Adventure (1981) by Charles Benton
 
 I met "Chuck" Benton when I was a kid, maybe 10 years old, and he was showing me this, his new creation,
 on his Apple II. He had just begun selling it. I remember being amazed at how intelligent the AI seemed, 

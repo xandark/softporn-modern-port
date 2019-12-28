@@ -1,4 +1,4 @@
-# Linux port of Softporn Adventure (1981) by Charles Benton
+# Modern port of Softporn Adventure (1981) by Charles Benton
 
 I met "Chuck" Benton when I was a kid, maybe 10 years old, and he was showing me this, his new creation,
 on his Apple II. He had just begun selling it. I remember being amazed at how intelligent the AI seemed, 
@@ -58,3 +58,7 @@ At any point, type "quit" to end.
 
 * Need to test the save game functionality. 
 * Need to figure out why the close() function doesn't want to compile?? It's commented out now.
+
+## Further Ports
+
+This shouldn't be too difficult to do--just a matter of some possible ifdef's and testing. Pull requests accepted.

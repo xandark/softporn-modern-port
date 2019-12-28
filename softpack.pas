@@ -1,13 +1,13 @@
 {$C+}
 {$R+}
-{$U+}
+(* {$U+} *)
 
-program PACK;
+program softpack;
 
 const  recsize      = 450;
        EOL          = #$0D;
-       infile_name  = 'SOFTPORN.TXT';
-       outfile_name = 'SOFTPORN.MSG';
+       infile_name  = 'softporn.txt';
+       outfile_name = 'softporn.msg';
 
 type   rectype = array[1..recsize] of char;
        str     = string[120];
@@ -89,4 +89,4 @@ begin  { Main program }
   writeln;
 
 end.
-
+

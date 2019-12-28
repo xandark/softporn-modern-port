@@ -94,15 +94,15 @@ begin
 end;
 
 
-procedure I_see_something( object : objects; messg : str25 );
+procedure I_see_something( obj : objects; messg : str25 );
 (*=========================================================*)
 begin
   with game_position do
     begin
-      if object_place[object]=nowhere then
+      if object_place[obj]=nowhere then
         begin
           write_message('I see something!!!');
-          object_place[object] := your_place;
+          object_place[obj] := your_place;
         end
       else if messg='' then
         I_see_nothing_special
@@ -174,8 +174,8 @@ procedure init_new_game;
 
 var yesno     : char;
     place     : places;
-    direction : directions;
-    i         : integer;
+//  direction : directions;
+//  i         : integer;
 
 begin
   clrscr;
@@ -192,7 +192,7 @@ begin
 
       line_from_kbd := '';
 
-      object_place := orig_object_place;
+      object_place := orig_object_place;		// https://www.freepascal.org/docs-html/current/user/userse63.html
 
       path := orig_path;
 
@@ -249,8 +249,9 @@ var objcount  : integer;
     exits,
     exitcount : integer;
     exit      : directions;
-    anyexit   : boolean;
-    i,j,
+//  anyexit   : boolean;
+    i, 
+//  j,
     hpos,
     namelen   : integer;
 
@@ -267,7 +268,7 @@ begin
             write_message('The telephone rings');
         end;
       place_visited[your_place] := true;
-      newlines(2);
+//    newlines(2);									// this was commented out because it adds too many vertical spaces between responses
 
       gotoXY(1,1);
       clreol;
@@ -369,26 +370,26 @@ end;  { take_inventory }
 
 
 
-procedure replace( object, replacement : str10; target : str120 );
+procedure replace( obj, replacement : str10; target : str120 );
 (*==============================================================*)
 var i : integer;
 begin
-  if object<>replacement then
+  if obj<>replacement then
     repeat
-      i := pos( object, target );
+      i := pos( obj, target );
       if i>0 then
         begin
-          delete( target, i, length(object) );
+          delete( target, i, length(obj) );
           insert( replacement, target, i );
         end;
     until i=0;
 end;  { replace }
 
 
-procedure replace_with_space( object : str10; target : str120 );
+procedure replace_with_space( obj : str10; target : str120 );
 (*============================================================*)
 begin
-  replace( object, ' ', target );
+  replace( obj, ' ', target );
 end;  { replace_with_space }
 
 
@@ -545,7 +546,7 @@ procedure read_and_parse_command( var verb, noun : word_name_string;
                                   var full_verb, full_noun : str25 );
 (*=================================================================*)
 
-var i, sppos   : integer;
+var i {, sppos}: integer;
     command    : str120;
     command_ok : boolean;
 
@@ -635,4 +636,3 @@ begin
 
 end;    { read_and_parse_command }
 
-

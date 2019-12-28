@@ -6,10 +6,13 @@ function locase( c : char ) : char;
 (*===============================*)
 begin
   case c of
-    'A'..'Z':  c := chr( ord(c) + $20 );
-    'è':       c := 'Ü';
+    'A'..'Z':   c := chr( ord(c) + $20 );
+    #$8F:       c := #$86;
+    #$8E:       c := #$84;
+    #$99:       c := #$94;
+{   'è':       c := 'Ü';
     'é':       c := 'Ñ';
-    'ô':       c := 'î';
+    'ô':       c := 'î';   }
   end;
   locase := c;
 end;
@@ -20,7 +23,7 @@ procedure read_key ( var ch : char; cset : set_of_char );
 var ch_up : char;
 begin
   repeat
-    read( kbd, ch );
+    ch    := ReadKey();				{ from unit keyboard }
     ch_up := upcase(ch);
     if ch_up in cset then
       writeln( ch )
@@ -37,7 +40,7 @@ procedure write_long_messg( messg_no : integer );
 const  EOL     = #$0D;
        NULL    = #0;
 
-var    i, j       : integer;
+var    i          : integer;
        c          : char;
 
 begin
@@ -78,9 +81,10 @@ procedure wait_for_space;
 (*=====================*)
 var c : char;
 begin
+  c := 'x';
   write('                    Press  <SPACE>  to continue  ');
   repeat
-    read(kbd,c);
+    c := ReadKey();
     if c<>' ' then write(#7);
   until c=' ';
 end;
@@ -553,4 +557,3 @@ begin
       object_open := false;
     end;
 end;
-

@@ -1,12 +1,21 @@
+{$MODE FPC}					{ Default mode of Free Pascal; don't use Turbo Pascal mode, which prevents compilation }
+
 program softporn_adventure;
 
-const  bottom_line = 25;    { 24 for CP/M, 25 for IBM PC }
+uses 
+  Crt; 						{ /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/unix/crt.pp } { https://www.freepascal.org/docs-html/current/rtl/crt/index.html } { imports: delay, gotoXY, clrscr, clreol, lowvideo } { Turbo Pascal screen and keyboard handling unit }
+
+{$ifndef linux}
+	const  bottom_line = 25;    { 24 for CP/M, 25 for IBM PC }
+{$else}
+	const  bottom_line = 36;    { Linux is different }
+{$endif}
 
 label  quit_game;
 
-{$C+}
-{$R+}
-{$U+}
+{$C+}						{ what was this?? assertions compiled into binary??? }
+{$R+}						{ range checks on }
+// {$U+}					{ what was this?? }
 
 const    recsize = 450;
 
@@ -16,9 +25,9 @@ var      messg_rec  : rectype;
          messg_file : file of rectype;
          ioerr      : integer;
 
-{$I SOFTP1.INC }
-{$I SOFTP2.INC }
-{$I SOFTP3.INC }
+{$I softporn-1.inc.pas }
+{$I softporn-2.inc.pas }
+{$I softporn-3.inc.pas }
 
 
 begin   { main program }
@@ -26,13 +35,13 @@ begin   { main program }
   lowvideo;
 
   {$I-}
-  assign(messg_file,'SOFTPORN.MSG');
+  assign(messg_file,'softporn.msg');
   reset(messg_file);
   {$I+}
   ioerr := IOresult;
   if ioerr<>0 then
     begin
-      writeln('Cannot open SOFTPORN.MSG, file missing?');
+      writeln('Cannot open softporn.msg, file missing?');
       halt;
     end;
 
@@ -137,9 +146,9 @@ begin   { main program }
 
               case verb of
 
-                {$I SOFTP4.INC }
-                {$I SOFTP5.INC }
-                {$I SOFTP6.INC }
+                {$I softporn-4.inc.pas }
+                {$I softporn-5.inc.pas }
+                {$I softporn-6.inc.pas }
 
               end;
 
@@ -164,7 +173,8 @@ begin   { main program }
 
     end;  { with }
 
+{$ifndef linux}
   close(messg_file);
+{$endif}
 
 end.
-

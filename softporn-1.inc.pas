@@ -14,7 +14,7 @@ type
 
   object_name_string    = string[30];
   place_name_string     = string[35];
-  direction_name_string = string[6];
+  direction_name_string = string[13];
   verb_name_string      = string[10];
   word_name_string      = string[word_name_length];
   command_string        = string[80];
@@ -512,4 +512,4 @@ type gamepos = record
         password             : str10;
         _noun                : objects;    {loop variable}
         anything_carried     : boolean;
-
+

@@ -1,9 +1,16 @@
 .directory
 
+# Any files created by the Free Pascal IDE
 fp.cfg
 fp.dsk
 fp.ini
 
+# Object files
 *.o
 
+# Tool and output of tool
 softpack
+softporn.msg
+
+# Linux executable
+softporn_adventure

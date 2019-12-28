@@ -538,7 +538,9 @@ save :
     assign( save_file, save_file_name(objnam) );
     rewrite( save_file );
     write( save_file, game_position );
+{$ifndef linux}
     close( save_file );
+{$endif}
     write_message( save_file_name(objnam) + ' saved' );
   end; {save}
 
@@ -571,11 +573,13 @@ restore :
       end
     else
       write_long_message( integer(your_place) + 1 );
+{$ifndef linux}
     close( save_file );
+{$endif}
   end; {restore}
 
 
   else {anything else}
     I_cant_do_that;
 
-
+

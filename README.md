@@ -27,7 +27,7 @@ It took just an evening to get it to compile under Free Pascal and work.
 
 * Changing the source names to end in .pas so that modern editors will automatically do proper syntax highlighting
 * Added an explicit "uses Crt;" to reference this standard unit
-* Change variable named "object" to "obj" as "object" is now a reserved keyword in modern Pascal
+* Change variables named "object" to "obj" as "object" is now a reserved keyword in modern Pascal
 * There were some unused variables that the compiler was complaining about, so they were removed 
 * Fixed an original bug: the direction_name_string array was too small and has been resulting in an overflow situation
 * Replaced read( kbd, ch ) with ReadKey(), as the former doesn't map to modern Pascal

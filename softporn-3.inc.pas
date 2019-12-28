@@ -201,7 +201,11 @@ begin
 
       objects_carried    := 0;
       TV_channel         := 0;
-      money              := 10;   { $1000 }
+{$ifndef cheat}
+      money              := 10;    { $1000 }
+{$else}
+      money              := 100;   { $10000 }
+{$endif}
       score              := 0;
 
       rope_in_use        := false;

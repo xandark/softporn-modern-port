@@ -7,7 +7,10 @@
 program softporn_adventure;
 
 uses 
-  Crt; 						{ /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/unix/crt.pp } { https://www.freepascal.org/docs-html/current/rtl/crt/index.html } { imports: delay, gotoXY, clrscr, clreol, lowvideo } { Turbo Pascal screen and keyboard handling unit }
+  Crt; 						{ /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/inc/crth.inc, /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/unix/crt.pp } { https://www.freepascal.org/docs-html/current/rtl/crt/index.html } { imports: delay, gotoXY, clrscr, clreol, lowvideo } { Turbo Pascal screen and keyboard handling unit }
+
+
+// {$define cheat}				{ starts with $10,000, instead of $2,000 }
 
 {$ifndef linux}
 	const  bottom_line = 25;    { 24 for CP/M, 25 for IBM PC; set below for Linux }

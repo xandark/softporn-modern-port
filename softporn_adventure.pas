@@ -2,7 +2,8 @@
 
 {$C+}						{ what was this?? assertions compiled into binary??? }
 {$R+}						{ range checks on }
-// {$U+}					{ what was this?? }
+// {$U+}					{ compiles as a user program (as opposed a system program) }
+							{ Apple Pascal Language Reference Manual, pg. 68 }
 
 // Modern conveniences implemented at compile-time
 {$define cheat}					{ starts with $10,000, instead of $2,000 }

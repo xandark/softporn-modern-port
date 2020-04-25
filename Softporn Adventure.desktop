@@ -16,7 +16,7 @@ StartupNotify=true
 # Strangely, setting PATH doesn't work, it's like it gets reset right after we set it. So made links
 # to a known location, namely /tmp. The special %k field is the path of our .desktop file. 
 # See: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.1.html#exec-variables
-Exec=DIR=$(dirname "%k");  ln --symbolic "$DIR/softporn_adventure" "$DIR/softporn.msg" /tmp;  /tmp/softporn_adventure
+Exec=DIR=$(dirname "%k");  touch "$DIR/SOFTPORN.SAV";  ln --symbolic "$DIR/softporn_adventure" "$DIR/softporn.msg" "$DIR/SOFTPORN.SAV" /tmp;  /tmp/softporn_adventure
 Path=/tmp
 
 # Created by Michael Persimmon, 27 Dec 2019

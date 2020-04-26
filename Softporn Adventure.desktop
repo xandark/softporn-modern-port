@@ -12,12 +12,10 @@ Type=Application
 Terminal=true
 StartupNotify=true
 
-# This was really hard to get working from a local directory, so had to do this wacky hack to run from /tmp
-# Strangely, setting PATH doesn't work, it's like it gets reset right after we set it. So made links
-# to a known location, namely /tmp. The special %k field is the path of our .desktop file. 
+# The only way to get working from a local directory. The special %k field is the path of our .desktop file. 
 # See: https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.1.html#exec-variables
-Exec=DIR=$(dirname "%k");  touch "$DIR/SOFTPORN.SAV";  ln --symbolic "$DIR/softporn_adventure" "$DIR/softporn.msg" "$DIR/SOFTPORN.SAV" /tmp;  /tmp/softporn_adventure
-Path=/tmp
+Exec=DIR=$(dirname "%k");  cd "$DIR";  ./softporn_adventure
+
 
 # Created by Michael Persimmon, 27 Dec 2019
 

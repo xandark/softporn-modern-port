@@ -1,27 +1,26 @@
-{$MODE FPC}					{ Default mode of Free Pascal; don't use Turbo Pascal mode, which prevents compilation }
+{$MODE FPC}						// Default mode of Free Pascal; don't use Turbo Pascal mode, which prevents compilation
 
-{$C+}						{ what was this?? assertions compiled into binary??? }
-{$R+}						{ range checks on }
-// {$U+}					{ compiles as a user program (as opposed a system program) }
-							{ Apple Pascal Language Reference Manual, pg. 68 }
+{$C+}							// what was this?? assertions compiled into binary???
+{$R+}							// range checks on
+// {$U+}						// compiles as a user program (as opposed a system program)
+								// 		Apple Pascal Language Reference Manual, pg. 68
 
-// Modern conveniences implemented at compile-time
-{$define cheat}					{ starts with $10,000, instead of $2,000 }
-{$define omit_extra_newlines}	{ otherwise it adds too many vertical spaces between responses }
+// NEW: modern conveniences switched at compile-time
+{$define cheat}					// starts with $10,000, instead of $2,000
+{$define omit_extra_newlines}	// otherwise it adds too many vertical spaces between responses
 
 
 program softporn_adventure;
 
 uses 
-	Crt; 						{ standard screen and keyboard handling unit } 
-								{ imports: delay, gotoXY, clrscr, clreol, lowvideo, ScreenHeight } 
-								{ /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/unix/crt.pp } 
-								{ /usr/share/fpcsrc/3.0.4/packages/rtl-console/src/inc/crth.inc } 
-								{ https://www.freepascal.org/docs-html/current/rtl/crt/index.html }  
+	Crt; 						// standard screen and keyboard handling unit
+								// imports: delay, gotoXY, clrscr, clreol, lowvideo, ScreenHeight 
+								// 		/usr/share/fpcsrc/3.0.4/packages/rtl-console/src/unix/crt.pp 
+								// 		/usr/share/fpcsrc/3.0.4/packages/rtl-console/src/inc/crth.inc 
+								// https://www.freepascal.org/docs-html/current/rtl/crt/index.html
 
-{$ifndef linux}
-  const  bottom_line = 25;	{ 24 for CP/M, 25 for IBM PC; set below for Linux }
-{$endif}
+// NEW: we don't hard-code terminal line height anymore; we let the system tell us (below)
+//const  bottom_line = 25;	{ 24 for CP/M, 25 for IBM PC; set below for modern usage }
 
 label    quit_game;
 
@@ -33,9 +32,7 @@ var      messg_rec  : rectype;
          messg_file : file of rectype;
          ioerr      : integer;
 
-{$ifdef linux}
          bottom_line : integer;
-{$endif}
 
 {$I softporn-1.inc.pas }
 {$I softporn-2.inc.pas }
@@ -46,9 +43,8 @@ begin   { main program }
 
   lowvideo;
 
-  {$ifdef linux}
-     bottom_line := ScreenHeight;				// set dynamic height of terminal; defined in Crt unit
-  {$endif}
+  // NEW: set dynamic height of terminal; defined in Crt unit
+  bottom_line := ScreenHeight;
 
   {$I-}
     assign(messg_file,'softporn.msg');

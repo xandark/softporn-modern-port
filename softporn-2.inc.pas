@@ -64,7 +64,9 @@ end;  { Write long messg }
 procedure write_long_message( messg_no : integer );
 (*===============================================*)
 begin
+{ $ifndef omit_extra_newlines}
   writeln;
+{ $endif}
   write_long_messg( messg_no );
 end;  { Write long message }
 
@@ -72,7 +74,9 @@ end;  { Write long message }
 procedure write_message( message : messg_string );
 (*==============================================*)
 begin
+{ $ifndef omit_extra_newlines}
   writeln;
+{ $endif}
   writeln(message);
 end;
 

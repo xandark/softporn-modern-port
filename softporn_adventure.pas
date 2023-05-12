@@ -2,11 +2,11 @@
 
 {$C+}							// what was this?? assertions compiled into binary???
 {$R+}							// range checks on
-// {$U+}						// compiles as a user program (as opposed a system program)
+// {$U+}						// compiles as a user program (as opposed a system program)??
 								// 		Apple Pascal Language Reference Manual, pg. 68
 
 // NEW: modern conveniences switched at compile-time
-{$define cheat}					// starts with $10,000, instead of $2,000
+// {$define cheat}				// starts with $10,000, instead of $1,000
 {$define omit_extra_newlines}	// otherwise it adds too many vertical spaces between responses
 
 
